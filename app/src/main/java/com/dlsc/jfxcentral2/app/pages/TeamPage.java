@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral2.components.FeaturesContainer;
 import com.dlsc.jfxcentral2.components.Mode;
 import com.dlsc.jfxcentral2.components.StripView;
@@ -39,7 +39,7 @@ public class TeamPage extends PageBase {
         // team view
         TeamView teamView = new TeamView();
         teamView.sizeProperty().bind(sizeProperty());
-        teamView.getMembers().setAll(DataRepository2.getInstance().getMembers());
+        teamView.getMembers().setAll(DataRepository.getInstance().getMembers());
 
         // features
         FeaturesContainer featuresContainer = new FeaturesContainer();

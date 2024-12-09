@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Utility;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.SearchFilterView;
@@ -66,7 +66,7 @@ public class UtilitiesCategoryPage extends CategoryPageBase<Utility> {
 
     @Override
     protected ObservableList<Utility> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getUtilities())
+        return FXCollections.observableArrayList(DataRepository.getInstance().getUtilities())
                 .sorted((o1, o2) -> Boolean.compare(o2.isOnlineSupported(), o1.isOnlineSupported()));
     }
 }

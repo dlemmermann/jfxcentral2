@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.tiles;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral2.components.AvatarView;
@@ -33,7 +33,7 @@ public class LearnTileView extends SimpleTileView<Learn> {
         HBox developmentStatusBox = getLinkedObjectBox();
         developmentStatusBox.getChildren().clear();
         Learn learn = getData();
-        learn.getPersonIds().forEach(id -> DataRepository2.getInstance().getPersonById(id)
+        learn.getPersonIds().forEach(id -> DataRepository.getInstance().getPersonById(id)
                 .ifPresent(person -> {
                     AvatarView avatarView = new AvatarView();
                     avatarView.setTooltip(new Tooltip(person.getName()));

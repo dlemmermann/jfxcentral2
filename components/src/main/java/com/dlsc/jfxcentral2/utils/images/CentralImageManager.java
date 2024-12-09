@@ -102,7 +102,7 @@ public class CentralImageManager {
     }
 
     public static File bookCoverImageFile(Book book) {
-        File f = new File(DataRepository.getInstance().getRepositoryDirectory(), "books/" + book.getId() + "/" + "cover.jpg");
+        File f = new File(DataRepository.getRepositoryDirectory(), "books/" + book.getId() + "/" + "cover.jpg");
         if (f.exists()) {
             return f;
         } else {

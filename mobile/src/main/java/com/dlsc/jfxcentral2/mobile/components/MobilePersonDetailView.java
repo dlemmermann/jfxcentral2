@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral2.components.AvatarView;
@@ -88,7 +88,7 @@ public class MobilePersonDetailView extends VBox {
 
         // reset the text
         nameLabel.setText(person.getName());
-        descriptionLabel.setText(DataRepository2.getInstance().getPersonReadMe(person));
+        descriptionLabel.setText(DataRepository.getInstance().getPersonReadMe(person));
 
         // reset the boxes
         updateBadge(person);

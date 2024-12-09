@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.filters;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.RealWorldApp;
 import org.apache.commons.lang3.StringUtils;
 
@@ -32,7 +32,7 @@ public class ShowcaseFilterView extends SimpleModelObjectSearchFilterView<RealWo
     }
 
     private List<FilterItem<RealWorldApp>> getDomainFilterItems() {
-        List<RealWorldApp> appList = DataRepository2.getInstance().getRealWorldApps();
+        List<RealWorldApp> appList = DataRepository.getInstance().getRealWorldApps();
 
         ArrayList<FilterItem<RealWorldApp>> filterItems = new ArrayList<>(appList.stream()
                 .flatMap(app -> Optional.ofNullable(app.getDomain()).stream()

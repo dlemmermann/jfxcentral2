@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.components.detailsbox;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Coordinates;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 import com.dlsc.jfxcentral2.components.Header;
@@ -48,7 +48,7 @@ public class LibraryCoordinatesBox extends PaneBase implements NameProvider {
         StringProperty versionProperty = new SimpleStringProperty(this, "version");
 
         if (isAvailable) {
-            FXFuture.runBackground(() -> DataRepository2.getInstance().getArtifactVersion(coordinates)).map(property -> {
+            FXFuture.runBackground(() -> DataRepository.getInstance().getArtifactVersion(coordinates)).map(property -> {
                 versionProperty.bind(property);
                 return null;
             });

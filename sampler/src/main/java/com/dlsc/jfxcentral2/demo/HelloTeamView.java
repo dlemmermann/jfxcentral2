@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral2.components.SizeComboBox;
 import com.dlsc.jfxcentral2.components.TeamView;
 import javafx.scene.Node;
@@ -15,7 +15,7 @@ public class HelloTeamView extends JFXCentralSampleBase {
     protected Region createControl() {
         teamView = new TeamView();
 
-        teamView.getMembers().setAll(DataRepository2.getInstance().getMembers());
+        teamView.getMembers().setAll(DataRepository.getInstance().getMembers());
         return new ScrollPane(teamView);
     }
 

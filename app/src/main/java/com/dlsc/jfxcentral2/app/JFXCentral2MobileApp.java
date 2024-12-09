@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Company;
@@ -220,7 +220,7 @@ public class JFXCentral2MobileApp extends Application {
             int index = url.lastIndexOf("/");
             if (index > 0 && clazz != null) {
                 String id = url.substring(index + 1).trim();
-                if (!DataRepository2.getInstance().isValidId(clazz, id)) {
+                if (!DataRepository.getInstance().isValidId(clazz, id)) {
                     return MobileResponse.view(url, new Label("Error: 404"));
                 }
                 return MobileResponse.view(url, detailedResponse.call(id));

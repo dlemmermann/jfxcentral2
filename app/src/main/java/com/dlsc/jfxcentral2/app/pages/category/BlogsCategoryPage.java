@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.BlogsFilterView;
@@ -63,6 +63,6 @@ public class BlogsCategoryPage extends CategoryPageBase<Blog> {
 
     @Override
     protected ObservableList<Blog> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getBlogs());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getBlogs());
     }
 }

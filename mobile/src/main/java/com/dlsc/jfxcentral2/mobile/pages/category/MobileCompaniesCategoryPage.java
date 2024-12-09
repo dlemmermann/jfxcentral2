@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Company;
 import com.dlsc.jfxcentral2.mobile.components.ModelListCell;
@@ -48,6 +48,6 @@ public class MobileCompaniesCategoryPage extends MobileCategoryPageBase<Company>
 
     @Override
     protected ObservableList<Company> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getCompanies());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getCompanies());
     }
 }

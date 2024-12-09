@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.components.detailsbox;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Download;
 import com.dlsc.jfxcentral.data.model.Library;
@@ -171,9 +171,9 @@ public abstract class DetailsBoxBase<T extends ModelObject> extends PaneBase {
 
         // some model objects have a more suitable description (currently) in their readme files
         if (model instanceof Download download) {
-            return DataRepository2.getInstance().getDownloadReadMe(download);
+            return DataRepository.getInstance().getDownloadReadMe(download);
         } else if (model instanceof Person person) {
-            return DataRepository2.getInstance().getPersonReadMe(person);
+            return DataRepository.getInstance().getPersonReadMe(person);
         }
 
         return "(Missing description)";

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.IkonliPack;
 import com.dlsc.jfxcentral2.components.SizeComboBox;
 import com.dlsc.jfxcentral2.components.gridview.ModelGridView;
@@ -19,7 +19,7 @@ public class HelloPackGridView extends JFXCentralSampleBase {
 
         gridView = new ModelGridView<>();
         gridView.setTileViewProvider(IkonliPackTileView::new);
-        gridView.getItems().setAll(DataRepository2.getInstance().getIkonliPacks());
+        gridView.getItems().setAll(DataRepository.getInstance().getIkonliPacks());
 
         return new ScrollPane(gridView);
     }

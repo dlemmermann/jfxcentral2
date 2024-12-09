@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral.data.model.LearnJavaFX;
 import com.dlsc.jfxcentral.data.model.LearnMobile;
@@ -28,11 +28,11 @@ public class LearnPaginationBox extends HBox {
 
         List<? extends Learn> learnList;
         if (learn instanceof LearnJavaFX) {
-            learnList = DataRepository2.getInstance().getLearnJavaFX();
+            learnList = DataRepository.getInstance().getLearnJavaFX();
         } else if (learn instanceof LearnMobile) {
-            learnList = DataRepository2.getInstance().getLearnMobile();
+            learnList = DataRepository.getInstance().getLearnMobile();
         } else {
-            learnList = DataRepository2.getInstance().getLearnRaspberryPi();
+            learnList = DataRepository.getInstance().getLearnRaspberryPi();
         }
 
         Button previousButton = new Button();

@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral.data.model.LearnJavaFX;
@@ -45,7 +45,7 @@ public class LearnPagination<T extends Learn> extends MobilePagination<T> {
         itemProperty().addListener((obs, oldItem, newItem) -> {
             // update author box
             authorBox.getChildren().clear();
-            newItem.getPersonIds().forEach(id -> DataRepository2.getInstance().getPersonById(id)
+            newItem.getPersonIds().forEach(id -> DataRepository.getInstance().getPersonById(id)
                     .ifPresent(person -> {
                         AvatarView avatarView = new AvatarView();
                         avatarView.setTooltip(new Tooltip(person.getName()));
@@ -65,11 +65,11 @@ public class LearnPagination<T extends Learn> extends MobilePagination<T> {
             }
 
             if (currentItem instanceof LearnJavaFX data) {
-                return DataRepository2.getInstance().getLearnJavaFXReadMe(data);
+                return DataRepository.getInstance().getLearnJavaFXReadMe(data);
             } else if (currentItem instanceof LearnMobile data) {
-                return DataRepository2.getInstance().getLearnMobileReadMe(data);
+                return DataRepository.getInstance().getLearnMobileReadMe(data);
             } else if (currentItem instanceof LearnRaspberryPi data) {
-                return DataRepository2.getInstance().getLearnRaspberryPiReadMe(data);
+                return DataRepository.getInstance().getLearnRaspberryPiReadMe(data);
             }
             return "";
         }, itemProperty(), baseURLProperty()));

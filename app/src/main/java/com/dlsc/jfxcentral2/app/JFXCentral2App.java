@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.app;
 
 import com.dlsc.gemsfx.util.StageManager;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Company;
@@ -328,7 +328,7 @@ public class JFXCentral2App extends Application {
         int index = request.getPath().lastIndexOf("/");
         if (index > 0) {
             String id = request.getPath().substring(index + 1).trim();
-            if (!DataRepository2.getInstance().isValidId(clazz, id)) {
+            if (!DataRepository.getInstance().isValidId(clazz, id)) {
                 return Response.view(new ErrorPage(size, request));
             }
 
@@ -360,7 +360,7 @@ public class JFXCentral2App extends Application {
             String ikonliPackId = parts[1];
             String iconDescription = parts[2];
 
-            return DataRepository2.getInstance().getIkonliPackById(ikonliPackId)
+            return DataRepository.getInstance().getIkonliPackById(ikonliPackId)
                     .flatMap(ikonliPack -> IkonliPackUtil.getInstance().getIkon(ikonliPack, iconDescription)
                             .map(ikon -> {
                                 IconInfo iconInfo = new IconInfoBuilder(ikon, ikonliPack.getName(), ikonliPackId).build();

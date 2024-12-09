@@ -1,5 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
+import com.dlsc.jfxcentral2.iconfont.JFXCentralIcon;
 import com.dlsc.jfxcentral2.utils.ExternalLinkUtil;
 import com.dlsc.jfxcentral2.utils.IkonUtil;
 import javafx.beans.InvalidationListener;
@@ -22,6 +23,7 @@ public class SocialLinksView extends StackPane {
     private final Button githubLinkBtn;
     private final Button facebookLinkBtn;
     private final Button redditLinkBtn;
+    private final Button blueskyLinkBtn;
     private final Pane pane;
 
     public SocialLinksView() {
@@ -104,6 +106,15 @@ public class SocialLinksView extends StackPane {
         facebookLinkBtn.setFocusTraversable(false);
         facebookUrl.addListener(it -> updateLink(facebookLinkBtn, getFacebookUrl()));
 
+        blueskyLinkBtn = new Button("BLUESKY", new FontIcon(JFXCentralIcon.BLUESKY));
+        blueskyLinkBtn.getStyleClass().add("bluesky-link-btn");
+        blueskyLinkBtn.setMinWidth(Region.USE_PREF_SIZE);
+        blueskyLinkBtn.setMaxWidth(Double.MAX_VALUE);
+        blueskyLinkBtn.visibleProperty().bind(blueskyUrlProperty().isNotEmpty());
+        blueskyLinkBtn.managedProperty().bind(blueskyLinkBtn.visibleProperty());
+        blueskyLinkBtn.setFocusTraversable(false);
+        blueskyUrl.addListener(it -> updateLink(blueskyLinkBtn, getBlueskyUrl()));
+
         mailLinkBtn = new Button("MAIL", new FontIcon(IkonUtil.mail));
         mailLinkBtn.getStyleClass().add("mail-link-btn");
         mailLinkBtn.setMinWidth(Region.USE_PREF_SIZE);
@@ -123,6 +134,7 @@ public class SocialLinksView extends StackPane {
         mailUrl.addListener(updateViewListener);
         facebookUrl.addListener(updateViewListener);
         redditUrl.addListener(updateViewListener);
+        blueskyUrl.addListener(updateViewListener);
 
         updateView();
     }
@@ -155,6 +167,9 @@ public class SocialLinksView extends StackPane {
         if (StringUtils.isNotBlank(getRedditUrl())) {
             pane.getChildren().add(redditLinkBtn);
         }
+        if (StringUtils.isNotBlank(getBlueskyUrl())) {
+            pane.getChildren().add(blueskyLinkBtn);
+        }
         if (StringUtils.isNotBlank(getMailUrl())) {
             pane.getChildren().add(mailLinkBtn);
         }
@@ -179,6 +194,7 @@ public class SocialLinksView extends StackPane {
     public void setTwitterUrl(String twitterUrl) {
         this.twitterUrl.set(twitterUrl);
     }
+
     private final StringProperty mastodonUrl = new SimpleStringProperty(this, "mastodonUrl");
 
     public String getMastodonUrl() {
@@ -275,5 +291,19 @@ public class SocialLinksView extends StackPane {
 
     public void setGithubUrl(String githubUrl) {
         this.githubUrl.set(githubUrl);
+    }
+
+    private final StringProperty blueskyUrl = new SimpleStringProperty(this, "blueskyUrl");
+
+    public final String getBlueskyUrl() {
+        return blueskyUrl.get();
+    }
+
+    public final StringProperty blueskyUrlProperty() {
+        return blueskyUrl;
+    }
+
+    public final void setBlueskyUrl(String blueskyUrl) {
+        this.blueskyUrl.set(blueskyUrl);
     }
 }

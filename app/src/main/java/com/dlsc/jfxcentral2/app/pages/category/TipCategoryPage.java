@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Tip;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.SearchFilterView;
@@ -58,6 +58,6 @@ public class TipCategoryPage extends CategoryPageBase<Tip> {
 
     @Override
     protected ObservableList<Tip> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getTips());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getTips());
     }
 }

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.PeopleFilterView;
@@ -77,6 +77,6 @@ public class PeopleCategoryPage extends CategoryPageBase<Person> {
 
     @Override
     protected ObservableList<Person> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getPeople());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getPeople());
     }
 }

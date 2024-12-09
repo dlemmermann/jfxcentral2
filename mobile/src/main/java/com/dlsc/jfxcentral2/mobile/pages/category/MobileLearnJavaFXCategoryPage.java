@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral2.model.Size;
 import javafx.beans.property.ObjectProperty;
@@ -20,7 +20,7 @@ public class MobileLearnJavaFXCategoryPage extends MobileLearnCategoryPage {
 
     @Override
     protected ObservableList<Learn> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getLearnJavaFX());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getLearnJavaFX());
     }
 
 }

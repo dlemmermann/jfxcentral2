@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.filters;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Documentation;
 import org.apache.commons.lang3.StringUtils;
 
@@ -49,7 +49,7 @@ public class DocumentationFilterView extends SimpleSearchFilterView<Documentatio
     private List<FilterItem<Documentation>> getVideoFilterItems(
             Function<Documentation, String> attrGetter,
             BiPredicate<Documentation, String> predicate) {
-        List<Documentation> appList = DataRepository2.getInstance().getDocumentation();
+        List<Documentation> appList = DataRepository.getInstance().getDocumentation();
 
         ArrayList<FilterItem<Documentation>> filterItems = new ArrayList<>(appList.stream()
                 .flatMap(app -> Optional.ofNullable(attrGetter.apply(app)).stream()

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.topcontent;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Company;
@@ -80,14 +80,14 @@ public class TopContentContainerView extends PaneBase {
                 return new Task<>() {
                     @Override
                     protected Void call() throws Exception {
-                        List<Tool> tools = DataRepository2.getInstance().getTools();
-                        List<Library> libraries = DataRepository2.getInstance().getLibraries();
-                        List<Blog> blogs = DataRepository2.getInstance().getBlogs();
-                        List<Video> videos = DataRepository2.getInstance().getVideos();
-                        List<Download> downloads = DataRepository2.getInstance().getDownloads();
-                        List<Book> books = DataRepository2.getInstance().getBooks();
-                        List<Company> companies = DataRepository2.getInstance().getCompanies();
-                        List<Tip> tips = DataRepository2.getInstance().getTips();
+                        List<Tool> tools = DataRepository.getInstance().getTools();
+                        List<Library> libraries = DataRepository.getInstance().getLibraries();
+                        List<Blog> blogs = DataRepository.getInstance().getBlogs();
+                        List<Video> videos = DataRepository.getInstance().getVideos();
+                        List<Download> downloads = DataRepository.getInstance().getDownloads();
+                        List<Book> books = DataRepository.getInstance().getBooks();
+                        List<Company> companies = DataRepository.getInstance().getCompanies();
+                        List<Tip> tips = DataRepository.getInstance().getTips();
                         //Display the interface, Pause for 0.5 seconds, then fill the data
                         Thread.sleep(500);
                         Platform.runLater(() -> {

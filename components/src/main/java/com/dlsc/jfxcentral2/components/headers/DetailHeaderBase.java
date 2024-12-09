@@ -76,12 +76,14 @@ public class DetailHeaderBase extends CategoryHeader {
             String titleWithBody = URLEncoder.encode(shareTitle + " " + shareText, StandardCharsets.UTF_8);
             String body = URLEncoder.encode(shareText + " ", StandardCharsets.UTF_8); // extra space for proper formatting on twitter
             String bodyWithUrl = URLEncoder.encode(shareText + " https://www.jfx-central.com/" + shareUrl, StandardCharsets.UTF_8);
+            String bodyWithUrlAndTags = URLEncoder.encode(shareText + " https://www.jfx-central.com/" + shareUrl + " #javafx #java #ux #ui", StandardCharsets.UTF_8);
 
             socialLinksView.setFacebookUrl("https://www.facebook.com/sharer/sharer.php?u=" + url + "&t=" + titleWithBody);
             socialLinksView.setTwitterUrl("https://twitter.com/share?text=" + body + "&url=" + url + "&hashtags=javafx,java,ux,ui");
             socialLinksView.setLinkedInUrl("https://www.linkedin.com/shareArticle?mini=false&url=" + url + "&title=" + title + "&summary=" + body);
             socialLinksView.setMailUrl("mailto:?subject=" + title.replace("+", "%20") + "&body=" + body.replace("+", "%20"));
             socialLinksView.setRedditUrl("https://www.reddit.com/r/JavaFX/submit?title=" + title + "&selftext=true&text=" + bodyWithUrl + "&link=" + url);
+            socialLinksView.setBlueskyUrl("https://bsky.app/intent/compose?text=" + bodyWithUrlAndTags);
         }
     }
 

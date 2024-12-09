@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Library;
@@ -61,21 +61,21 @@ public class FeaturesContainer extends PaneBase {
         featuresProperty().addListener((ob, ov, nv) -> layoutBySize());
 
         List<ModelObject> allModelObjects = new ArrayList<>();
-        allModelObjects.addAll(DataRepository2.getInstance().getTips());
-        allModelObjects.addAll(DataRepository2.getInstance().getLibraries());
-        allModelObjects.addAll(DataRepository2.getInstance().getRealWorldApps());
-        allModelObjects.addAll(DataRepository2.getInstance().getTools());
-        allModelObjects.addAll(DataRepository2.getInstance().getBooks());
-        allModelObjects.addAll(DataRepository2.getInstance().getBlogs());
+        allModelObjects.addAll(DataRepository.getInstance().getTips());
+        allModelObjects.addAll(DataRepository.getInstance().getLibraries());
+        allModelObjects.addAll(DataRepository.getInstance().getRealWorldApps());
+        allModelObjects.addAll(DataRepository.getInstance().getTools());
+        allModelObjects.addAll(DataRepository.getInstance().getBooks());
+        allModelObjects.addAll(DataRepository.getInstance().getBlogs());
         Collections.shuffle(allModelObjects);
 
         /*
          * For now we do not feature videos, tutorials, people, or blogs.
          */
-//        allModelObjects.addAll(DataRepository2.getInstance().getVideos());
-//        allModelObjects.addAll(DataRepository2.getInstance().getTutorials());
-//        allModelObjects.addAll(DataRepository2.getInstance().getPeople());
-//        allModelObjects.addAll(DataRepository2.getInstance().getBlogs());
+//        allModelObjects.addAll(DataRepository.getInstance().getVideos());
+//        allModelObjects.addAll(DataRepository.getInstance().getTutorials());
+//        allModelObjects.addAll(DataRepository.getInstance().getPeople());
+//        allModelObjects.addAll(DataRepository.getInstance().getBlogs());
 
 
         allModelObjects

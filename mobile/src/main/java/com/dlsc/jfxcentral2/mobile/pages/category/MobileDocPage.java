@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Documentation;
 import com.dlsc.jfxcentral2.mobile.components.ModelListCell;
@@ -54,6 +54,6 @@ public class MobileDocPage extends MobileCategoryPageBase<Documentation> {
 
     @Override
     protected ObservableList<Documentation> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getDocumentation());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getDocumentation());
     }
 }

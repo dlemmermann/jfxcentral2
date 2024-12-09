@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.details;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral.data.model.LearnJavaFX;
 import com.dlsc.jfxcentral.data.model.LearnMobile;
@@ -32,16 +32,16 @@ public class MobileLearnDetailsPage extends MobileDetailsPageBase<Learn> {
         // content
         LearnPagination<Learn> detailsView = new LearnPagination<>();
         if (learn instanceof LearnJavaFX) {
-            detailsView.setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/javafx/" + learn.getId());
-            List<LearnJavaFX> learnJavaFX = DataRepository2.getInstance().getLearnJavaFX();
+            detailsView.setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/javafx/" + learn.getId());
+            List<LearnJavaFX> learnJavaFX = DataRepository.getInstance().getLearnJavaFX();
             detailsView.getItems().setAll(learnJavaFX);
         } else if (learn instanceof LearnMobile) {
-            detailsView.setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/mobile/" + learn.getId());
-            List<LearnMobile> learnMobile = DataRepository2.getInstance().getLearnMobile();
+            detailsView.setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/mobile/" + learn.getId());
+            List<LearnMobile> learnMobile = DataRepository.getInstance().getLearnMobile();
             detailsView.getItems().setAll(learnMobile);
         } else if (learn instanceof LearnRaspberryPi) {
-            List<LearnRaspberryPi> learnRaspberryPi = DataRepository2.getInstance().getLearnRaspberryPi();
-            detailsView.setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/raspberrypi/" + learn.getId());
+            List<LearnRaspberryPi> learnRaspberryPi = DataRepository.getInstance().getLearnRaspberryPi();
+            detailsView.setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/raspberrypi/" + learn.getId());
             detailsView.getItems().setAll(learnRaspberryPi);
         }
         detailsView.setSelectedItem(learn);

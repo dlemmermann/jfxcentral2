@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Library;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.LibrariesFilterView;
@@ -67,6 +67,6 @@ public class LibrariesCategoryPage extends CategoryPageBase<Library> {
 
     @Override
     protected ObservableList<Library> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getLibraries());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getLibraries());
     }
 }

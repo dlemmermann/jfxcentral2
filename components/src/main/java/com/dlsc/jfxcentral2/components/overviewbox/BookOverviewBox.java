@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.overviewbox;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral2.components.CustomImageView;
@@ -21,8 +21,8 @@ public class BookOverviewBox extends OverviewBox<Book> {
     public BookOverviewBox(Book book) {
         super(book);
         getStyleClass().add("book-overview-box");
-        setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "books/" + getModel().getId());
-        setMarkdown(DataRepository2.getInstance().getBookReadMe(book));
+        setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "books/" + getModel().getId());
+        setMarkdown(DataRepository.getInstance().getBookReadMe(book));
     }
 
     @Override

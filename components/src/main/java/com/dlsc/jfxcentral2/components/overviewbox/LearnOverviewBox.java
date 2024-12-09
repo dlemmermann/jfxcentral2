@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.overviewbox;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral.data.model.LearnJavaFX;
 import com.dlsc.jfxcentral.data.model.LearnMobile;
@@ -15,14 +15,14 @@ public class LearnOverviewBox extends OverviewBox<Learn> {
         getStyleClass().add("learn-overview-box");
 
         if (learn instanceof LearnJavaFX temp) {
-            setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/javafx/" + learn.getId());
-            setMarkdown(DataRepository2.getInstance().getLearnJavaFXReadMe(temp));
+            setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/javafx/" + learn.getId());
+            setMarkdown(DataRepository.getInstance().getLearnJavaFXReadMe(temp));
         } else if (learn instanceof LearnMobile temp) {
-            setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/mobile/" + learn.getId());
-            setMarkdown(DataRepository2.getInstance().getLearnMobileReadMe(temp));
+            setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/mobile/" + learn.getId());
+            setMarkdown(DataRepository.getInstance().getLearnMobileReadMe(temp));
         } else {
-            setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "learn/raspberrypi/" + learn.getId());
-            setMarkdown(DataRepository2.getInstance().getLearnRaspberryPiReadMe((LearnRaspberryPi) learn));
+            setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "learn/raspberrypi/" + learn.getId());
+            setMarkdown(DataRepository.getInstance().getLearnRaspberryPiReadMe((LearnRaspberryPi) learn));
         }
     }
 

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Tool;
 import com.dlsc.jfxcentral2.mobile.components.ModelListCell;
@@ -48,6 +48,6 @@ public class MobileToolsCategoryPage extends MobileCategoryPageBase<Tool> {
 
     @Override
     protected ObservableList<Tool> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getTools());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getTools());
     }
 }

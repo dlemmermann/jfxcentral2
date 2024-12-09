@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.mobile.home;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 import com.dlsc.jfxcentral2.components.SizeSupport;
@@ -61,7 +61,7 @@ public class WeekLinksView extends VBox {
             }
             DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL);
             String date = String.format("## Posted on %s%n%n", formatter.format(linksOfTheWeek.getCreatedOn()));
-            String mdStr = DataRepository2.getInstance().getLinksOfTheWeekReadMe(linksOfTheWeek);
+            String mdStr = DataRepository.getInstance().getLinksOfTheWeekReadMe(linksOfTheWeek);
             return date + mdStr;
         }, linksOfTheWeekProperty()));
 

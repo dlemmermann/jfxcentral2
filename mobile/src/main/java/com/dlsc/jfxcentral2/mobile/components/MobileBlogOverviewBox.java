@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Post;
 import com.dlsc.jfxcentral2.components.Header;
@@ -72,7 +72,7 @@ public class MobileBlogOverviewBox extends VBox {
                 return new Task<>() {
                     @Override
                     protected Void call() throws InterruptedException {
-                        List<Post> posts = DataRepository2.getInstance().loadPosts(blog);
+                        List<Post> posts = DataRepository.getInstance().loadPosts(blog);
                         posts.sort((o1, o2) -> o2.getSyndEntry().getPublishedDate().compareTo(o1.getSyndEntry().getPublishedDate()));
                         Thread.sleep(500);
                         Platform.runLater(() -> {

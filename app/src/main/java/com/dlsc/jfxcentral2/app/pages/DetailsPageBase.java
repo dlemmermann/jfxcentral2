@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Company;
@@ -51,7 +51,7 @@ public abstract class DetailsPageBase<T extends ModelObject> extends PageBase {
 
     public DetailsPageBase(ObjectProperty<Size> size, Class<? extends T> clazz, String itemId) {
         super(size, Mode.DARK);
-        setItem(DataRepository2.getInstance().getByID(clazz, itemId));
+        setItem(DataRepository.getInstance().getByID(clazz, itemId));
     }
 
     public T getItem() {
@@ -120,7 +120,7 @@ public abstract class DetailsPageBase<T extends ModelObject> extends PageBase {
             return;
         }
 
-        List<MO> linkedObjects = DataRepository2.getInstance().getLinkedObjects(modelObject, clazz);
+        List<MO> linkedObjects = DataRepository.getInstance().getLinkedObjects(modelObject, clazz);
         if (!linkedObjects.isEmpty()) {
             DetailsBoxBase<MO> box = boxSupplier.get();
             box.getItems().setAll(linkedObjects);
@@ -130,9 +130,9 @@ public abstract class DetailsPageBase<T extends ModelObject> extends PageBase {
     }
 
     private void addLearnBox(ModelObject modelObject, List<DetailsBoxBase<?>> boxList) {
-        List<LearnJavaFX> fxList = DataRepository2.getInstance().getLinkedObjects(modelObject, LearnJavaFX.class);
-        List<LearnMobile> mobileList = DataRepository2.getInstance().getLinkedObjects(modelObject, LearnMobile.class);
-        List<LearnRaspberryPi> learnRaspberryPiList = DataRepository2.getInstance().getLinkedObjects(modelObject, LearnRaspberryPi.class);
+        List<LearnJavaFX> fxList = DataRepository.getInstance().getLinkedObjects(modelObject, LearnJavaFX.class);
+        List<LearnMobile> mobileList = DataRepository.getInstance().getLinkedObjects(modelObject, LearnMobile.class);
+        List<LearnRaspberryPi> learnRaspberryPiList = DataRepository.getInstance().getLinkedObjects(modelObject, LearnRaspberryPi.class);
         if (!fxList.isEmpty() || !mobileList.isEmpty() || !learnRaspberryPiList.isEmpty()) {
             LearnDetailBox box = new LearnDetailBox();
             box.getItems().setAll(fxList);

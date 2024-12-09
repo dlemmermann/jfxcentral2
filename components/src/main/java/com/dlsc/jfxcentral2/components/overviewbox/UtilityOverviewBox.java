@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.overviewbox;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Utility;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 import com.dlsc.jfxcentral2.iconfont.JFXCentralIcon;
@@ -104,7 +104,7 @@ public class UtilityOverviewBox extends OverviewBox<Utility> {
     }
 
     private Node readmeView(Utility model) {
-        String readme = DataRepository2.getInstance().getUtilityReadMe(model);
+        String readme = DataRepository.getInstance().getUtilityReadMe(model);
         CustomMarkdownView markdownView = new CustomMarkdownView(readme);
         markdownView.setDisable(!ModelObjectTool.isUtilityCanBeUsed(model));
         return markdownView;

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.utils;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Download;
 import com.dlsc.jfxcentral.data.model.Library;
@@ -163,7 +163,7 @@ public class QuickLinksGenerator {
     }
 
     private static List<ModelObject> createShuffledSublist(int size) {
-        DataRepository2 repository = DataRepository2.getInstance();
+        DataRepository repository = DataRepository.getInstance();
 
         List<ModelObject> allModelObjects = new ArrayList<>();
         allModelObjects.addAll(repository.getTips());
@@ -222,7 +222,7 @@ public class QuickLinksGenerator {
     }
 
     private static List<ModelObject> findRecentItems() {
-        DataRepository2 repository = DataRepository2.getInstance();
+        DataRepository repository = DataRepository.getInstance();
 
         List<ModelObject> result = new ArrayList<>();
 

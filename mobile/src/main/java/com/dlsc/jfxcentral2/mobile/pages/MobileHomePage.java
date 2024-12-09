@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Library;
@@ -110,31 +110,31 @@ public class MobileHomePage extends MobilePageBase {
 
         LearnCategoryBox learnCategoryBox = new LearnCategoryBox();
 
-        List<RealWorldApp> randomApps = getRandomSample(DataRepository2.getInstance().getRealWorldApps(), 3);
+        List<RealWorldApp> randomApps = getRandomSample(DataRepository.getInstance().getRealWorldApps(), 3);
         CategoryPreviewView showCasePreviewView = CategoryPreviewView.createShowCasePreviewView(randomApps, PagePath.SHOWCASES);
         showCasePreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Tip> randomTips = getRandomSample(DataRepository2.getInstance().getTips(), 2);
+        List<Tip> randomTips = getRandomSample(DataRepository.getInstance().getTips(), 2);
         CategoryPreviewView tipsPreviewView = CategoryPreviewView.createTipsPreviewView(randomTips, PagePath.TIPS);
         tipsPreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Person> randomPeople = getRandomSample(DataRepository2.getInstance().getPeople(), 3);
+        List<Person> randomPeople = getRandomSample(DataRepository.getInstance().getPeople(), 3);
         CategoryPreviewView peoplePreviewView = CategoryPreviewView.createPeoplePreviewView(randomPeople, PagePath.PEOPLE);
         peoplePreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Book> randomBooks = getRandomSample(DataRepository2.getInstance().getBooks(), 3);
+        List<Book> randomBooks = getRandomSample(DataRepository.getInstance().getBooks(), 3);
         CategoryPreviewView booksPreviewView = CategoryPreviewView.createBooksPreviewView(randomBooks, PagePath.BOOKS);
         booksPreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Library> randomLibraries = getRandomSample(DataRepository2.getInstance().getLibraries(), 3);
+        List<Library> randomLibraries = getRandomSample(DataRepository.getInstance().getLibraries(), 3);
         CategoryPreviewView libraryPreviewView = CategoryPreviewView.createLibraryPreviewView(randomLibraries, PagePath.LIBRARIES);
         libraryPreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Video> randomVideos = getRandomSample(DataRepository2.getInstance().getVideos(), 3);
+        List<Video> randomVideos = getRandomSample(DataRepository.getInstance().getVideos(), 3);
         CategoryPreviewView videoPreviewView = CategoryPreviewView.createVideosPreviewView(randomVideos, PagePath.VIDEOS);
         videoPreviewView.sizeProperty().bind(sizeProperty());
 
-        List<Blog> randomBlogs = getRandomSample(DataRepository2.getInstance().getBlogs(), 2);
+        List<Blog> randomBlogs = getRandomSample(DataRepository.getInstance().getBlogs(), 2);
         CategoryPreviewView blogPreviewView = CategoryPreviewView.createBlogPreviewView(randomBlogs, PagePath.BLOGS);
         blogPreviewView.sizeProperty().bind(sizeProperty());
 

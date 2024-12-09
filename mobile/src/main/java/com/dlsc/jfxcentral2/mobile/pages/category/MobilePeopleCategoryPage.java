@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral2.mobile.components.ModelListCell;
@@ -35,7 +35,7 @@ public class MobilePeopleCategoryPage extends MobileCategoryPageBase<Person> {
 
             @Override
             protected String getSummary(Person person) {
-                return DataRepository2.getInstance().getPersonReadMe(person);
+                return DataRepository.getInstance().getPersonReadMe(person);
             }
         };
     }
@@ -44,7 +44,7 @@ public class MobilePeopleCategoryPage extends MobileCategoryPageBase<Person> {
     protected Callback<String, Predicate<Person>> getFilter() {
         return text -> person -> StringUtils.isBlank(text)
                 || StringUtils.containsIgnoreCase(person.getName(), text)
-                || StringUtils.containsIgnoreCase(DataRepository2.getInstance().getPersonReadMe(person), text)
+                || StringUtils.containsIgnoreCase(DataRepository.getInstance().getPersonReadMe(person), text)
                 || StringUtils.containsIgnoreCase(person.getDescription(), text);
     }
 
@@ -65,6 +65,6 @@ public class MobilePeopleCategoryPage extends MobileCategoryPageBase<Person> {
 
     @Override
     protected ObservableList<Person> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getPeople());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getPeople());
     }
 }

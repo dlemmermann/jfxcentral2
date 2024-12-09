@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.components.HomePageTopView;
 import com.dlsc.jfxcentral2.components.Mode;
@@ -38,7 +38,7 @@ public class StartPage extends PageBase {
         homePageTopView.sizeProperty().bind(sizeProperty());
 
         // links of the Week
-        List<LinksOfTheWeek> linksOfTheWeek = DataRepository2.getInstance().getLinksOfTheWeek();
+        List<LinksOfTheWeek> linksOfTheWeek = DataRepository.getInstance().getLinksOfTheWeek();
 
         WeekLinksLiteView weekLinksLiteView = new WeekLinksLiteView();
         weekLinksLiteView.sizeProperty().bind(sizeProperty());
@@ -56,7 +56,7 @@ public class StartPage extends PageBase {
         // video gallery
         VideoGalleryView videoGallery = new VideoGalleryView();
         videoGallery.sizeProperty().bind(sizeProperty());
-        videoGallery.getVideos().setAll(randomSubList(DataRepository2.getInstance().getVideos(), 12));
+        videoGallery.getVideos().setAll(randomSubList(DataRepository.getInstance().getVideos(), 12));
         videoGallery.blockingProperty().addListener(it -> setBlocking(videoGallery.isBlocking()));
         videoGallery.onCloseGlassPaneProperty().addListener(it -> setOnCloseGlassPane(videoGallery.getOnCloseGlassPane()));
         return wrapContent(homePageTopView, weekLinksLiteView, websiteChangesView, videoGallery);

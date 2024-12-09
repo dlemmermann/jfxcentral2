@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.BooksFilterView;
@@ -61,6 +61,6 @@ public class BooksCategoryPage extends CategoryPageBase<Book> {
 
     @Override
     protected ObservableList<Book> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getBooks());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getBooks());
     }
 }

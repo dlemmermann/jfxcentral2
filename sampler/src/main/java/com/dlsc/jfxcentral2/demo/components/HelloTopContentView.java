@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Tool;
 import com.dlsc.jfxcentral2.components.SizeComboBox;
 import com.dlsc.jfxcentral2.components.topcontent.TopContentView;
@@ -19,7 +19,7 @@ public class HelloTopContentView extends JFXCentralSampleBase {
 
         topContentView = new TopContentView<>();
 
-        topContentView.getItems().setAll(DataRepository2.getInstance().getTools());
+        topContentView.getItems().setAll(DataRepository.getInstance().getTools());
 
         return new ScrollPane(topContentView);
     }

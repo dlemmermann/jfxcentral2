@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Video;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.SearchFilterView;
@@ -69,6 +69,6 @@ public class VideosCategoryPage extends CategoryPageBase<Video> {
 
     @Override
     protected ObservableList<Video> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getVideos());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getVideos());
     }
 }

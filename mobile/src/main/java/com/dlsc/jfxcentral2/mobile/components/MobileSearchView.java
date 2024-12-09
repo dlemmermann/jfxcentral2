@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.ModelObject;
 import com.dlsc.jfxcentral2.components.SearchResultCell;
 import com.dlsc.jfxcentral2.components.SizeSupport;
@@ -74,7 +74,7 @@ public class MobileSearchView extends StackPane {
     }
 
     private void addSuggestionsToList() {
-        DataRepository2 repository = DataRepository2.getInstance();
+        DataRepository repository = DataRepository.getInstance();
         repository.getPeople().forEach(person -> searchSuggestions.add(person.getName()));
     }
 
@@ -165,7 +165,7 @@ public class MobileSearchView extends StackPane {
     }
 
     public void addModelsToCollection() {
-        DataRepository2 repository = DataRepository2.getInstance();
+        DataRepository repository = DataRepository.getInstance();
         totalResources.addAll(repository.getBooks());
         totalResources.addAll(repository.getBlogs());
         totalResources.addAll(repository.getCompanies());

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Image;
 import com.dlsc.jfxcentral.data.model.Library;
@@ -39,7 +39,7 @@ public class LibraryPreviewBox extends PaneBase {
     public LibraryPreviewBox(Library library) {
         this.library = Objects.requireNonNull(library);
         getStyleClass().add("library-preview-box");
-        setLibraryInfo(DataRepository2.getInstance().getLibraryInfo(library));
+        setLibraryInfo(DataRepository.getInstance().getLibraryInfo(library));
         layoutBySize();
     }
 

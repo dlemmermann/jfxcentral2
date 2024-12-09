@@ -1,9 +1,10 @@
 package com.dlsc.jfxcentral2.components.headers;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral2.components.AvatarView;
+import com.dlsc.jfxcentral2.iconfont.JFXCentralIcon;
 import com.dlsc.jfxcentral2.model.Badge;
 import com.dlsc.jfxcentral2.utils.ExternalLinkUtil;
 import com.dlsc.jfxcentral2.utils.IkonUtil;
@@ -45,7 +46,7 @@ public class PersonDetailHeader extends DetailHeader<Person> {
         FlowPane nameBadgePane = createNameBadgePane(person);
 
         Label descriptionLabel = new Label();
-        descriptionLabel.setText(DataRepository2.getInstance().getPersonReadMe(person));
+        descriptionLabel.setText(DataRepository.getInstance().getPersonReadMe(person));
         descriptionLabel.setWrapText(true);
         descriptionLabel.getStyleClass().add("description");
 
@@ -93,6 +94,14 @@ public class PersonDetailHeader extends DetailHeader<Person> {
     private FlowPane createSocialFlowPane(Person person) {
         FlowPane socialFlowPane = new FlowPane();
         socialFlowPane.getStyleClass().add("social-flow-pane");
+
+        if (StringUtils.isNotBlank(person.getBluesky())) {
+            Button blueskyLinkBtn = new Button("BLUESKY", new FontIcon(JFXCentralIcon.BLUESKY));
+            blueskyLinkBtn.setFocusTraversable(false);
+            blueskyLinkBtn.getStyleClass().addAll("bluesky-link-btn", "link-button");
+            ExternalLinkUtil.setExternalLink(blueskyLinkBtn, "https://bsky.app/profile/" + person.getBluesky());
+            socialFlowPane.getChildren().add(blueskyLinkBtn);
+        }
 
         if (StringUtils.isNotBlank(person.getTwitter())) {
             Button twitterLinkBtn = new Button("TWITTER", new FontIcon(IkonUtil.twitter));

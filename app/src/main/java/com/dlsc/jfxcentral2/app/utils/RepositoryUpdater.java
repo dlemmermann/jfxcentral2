@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.utils;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral2.app.RepositoryManager;
 import javafx.application.Platform;
 import javafx.beans.property.ReadOnlyIntegerProperty;
@@ -63,7 +63,7 @@ public class RepositoryUpdater {
             @Override
             public void endTask() {
                 if (refresh) {
-                    DataRepository2.getInstance().reload();
+                    DataRepository.getInstance().reload();
                 }
             }
 

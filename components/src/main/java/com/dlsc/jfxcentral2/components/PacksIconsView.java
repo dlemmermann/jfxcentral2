@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.IkonliPack;
 import com.dlsc.jfxcentral2.components.gridview.IkonGridView;
 import com.dlsc.jfxcentral2.components.gridview.ModelGridView;
@@ -203,7 +203,7 @@ public class PacksIconsView extends PaneBase {
         packGridView.managedProperty().bind(visibleProperty());
 
         // packs data
-        ObservableList<IkonliPack> packs = FXCollections.observableArrayList(DataRepository2.getInstance().getIkonliPacks());
+        ObservableList<IkonliPack> packs = FXCollections.observableArrayList(DataRepository.getInstance().getIkonliPacks());
         FilteredList<IkonliPack> filteredPacks = new FilteredList<>(packs);
         filteredPacks.predicateProperty().bind(Bindings.createObjectBinding(() -> {
             String text = searchText.get().trim();

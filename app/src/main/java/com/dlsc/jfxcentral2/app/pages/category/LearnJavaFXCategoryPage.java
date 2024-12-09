@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral2.model.Size;
 import javafx.beans.property.ObjectProperty;
@@ -35,7 +35,7 @@ public class LearnJavaFXCategoryPage extends LearnCategoryPage {
 
     @Override
     protected ObservableList<Learn> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getLearnJavaFX());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getLearnJavaFX());
     }
 
 }

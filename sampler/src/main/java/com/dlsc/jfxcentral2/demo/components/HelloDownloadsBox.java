@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Download;
 import com.dlsc.jfxcentral2.components.DownloadsBox;
 import com.dlsc.jfxcentral2.components.SizeComboBox;
@@ -15,7 +15,7 @@ public class HelloDownloadsBox extends JFXCentralSampleBase {
 
     @Override
     protected Region createControl() {
-        Download download = DataRepository2.getInstance().getDownloads().get(0);
+        Download download = DataRepository.getInstance().getDownloads().get(0);
         downloadsBox = new DownloadsBox(download);
         return new StackPane(downloadsBox);
     }

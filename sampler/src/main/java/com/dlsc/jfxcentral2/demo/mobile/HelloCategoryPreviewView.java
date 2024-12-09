@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo.mobile;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral.data.model.RealWorldApp;
@@ -45,7 +45,7 @@ public class HelloCategoryPreviewView extends JFXCentralSampleBase {
         view.setTitle("Real World Apps");
         view.setShowAllUrl(PagePath.SHOWCASES);
         List<CategoryPreviewView.CategoryItem> items = new ArrayList<>();
-        List<RealWorldApp> apps = DataRepository2.getInstance().getRealWorldApps();
+        List<RealWorldApp> apps = DataRepository.getInstance().getRealWorldApps();
         for (int i = 0; i < 2; i++) {
             RealWorldApp app = apps.get(random.nextInt(apps.size()));
             CategoryPreviewView.CategoryItem item = new CategoryPreviewView.CategoryItem(
@@ -71,13 +71,13 @@ public class HelloCategoryPreviewView extends JFXCentralSampleBase {
         view.setTitle("People");
         view.setShowAllUrl(PagePath.PEOPLE);
         List<CategoryPreviewView.CategoryItem> items = new ArrayList<>();
-        List<Person> people = DataRepository2.getInstance().getPeople();
+        List<Person> people = DataRepository.getInstance().getPeople();
 
         for (int i = 0; i < 2; i++) {
             Person person = people.get(random.nextInt(people.size()));
             CategoryPreviewView.CategoryItem item = new CategoryPreviewView.CategoryItem(
                     person.getName(),
-                    DataRepository2.getInstance().getPersonReadMe(person),
+                    DataRepository.getInstance().getPersonReadMe(person),
                     null,
                     ImageManager.getInstance().personImageProperty(person),
                     ModelObjectTool.getModelLink(person),
@@ -98,7 +98,7 @@ public class HelloCategoryPreviewView extends JFXCentralSampleBase {
         view.setTitle("Tips");
         view.setShowAllUrl(PagePath.TIPS);
         List<CategoryPreviewView.CategoryItem> items = new ArrayList<>();
-        List<Tip> tips = DataRepository2.getInstance().getTips();
+        List<Tip> tips = DataRepository.getInstance().getTips();
         for (int i = 0; i < 2; i++) {
             Tip tip = tips.get(random.nextInt(tips.size()));
             CategoryPreviewView.CategoryItem item = new CategoryPreviewView.CategoryItem(

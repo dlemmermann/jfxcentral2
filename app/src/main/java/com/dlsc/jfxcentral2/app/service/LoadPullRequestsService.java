@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.service;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.pull.PullRequest;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -14,7 +14,7 @@ public class LoadPullRequestsService extends Service<List<PullRequest>> {
         return new Task<>() {
             @Override
             protected List<PullRequest> call() {
-                List<PullRequest> pullRequests = DataRepository2.getInstance().loadPullRequests();
+                List<PullRequest> pullRequests = DataRepository.getInstance().loadPullRequests();
                 updateProgress(1, 1);
                 return pullRequests;
             }

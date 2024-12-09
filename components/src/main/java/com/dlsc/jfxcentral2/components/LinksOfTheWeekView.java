@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.model.Size;
 import com.dlsc.jfxcentral2.utils.NodeUtil;
@@ -103,7 +103,7 @@ public class LinksOfTheWeekView extends PaneBase {
                 dateLabel.setText(DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM).format(week.getCreatedOn()));
 
                 CustomMarkdownView markdownView = new CustomMarkdownView();
-                markdownView.setMdString(DataRepository2.getInstance().getLinksOfTheWeekReadMe(week));
+                markdownView.setMdString(DataRepository.getInstance().getLinksOfTheWeekReadMe(week));
                 markdownView.setPrefHeight(markdownView.getWidth());
 
                 VBox weekBox = new VBox(markdownView);
@@ -127,7 +127,7 @@ public class LinksOfTheWeekView extends PaneBase {
     }
 
     protected List<LinksOfTheWeek> getSortedList() {
-        return DataRepository2.getInstance().getLinksOfTheWeek()
+        return DataRepository.getInstance().getLinksOfTheWeek()
                 .stream()
                 .sorted(Comparator.comparing(LinksOfTheWeek::getCreatedOn).reversed())
                 .toList();

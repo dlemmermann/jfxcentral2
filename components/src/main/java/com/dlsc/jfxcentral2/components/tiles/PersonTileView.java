@@ -1,11 +1,12 @@
 package com.dlsc.jfxcentral2.components.tiles;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Person;
 import com.dlsc.jfxcentral2.components.SocialLinksView;
 import com.dlsc.jfxcentral2.iconfont.JFXCentralIcon;
 import com.dlsc.jfxcentral2.utils.IkonUtil;
+import com.dlsc.jfxcentral2.utils.NodeUtil;
 import com.jpro.webapi.WebAPI;
 import javafx.geometry.Side;
 import javafx.scene.Node;
@@ -34,7 +35,7 @@ public class PersonTileView extends SimpleTileView<Person> {
         imageProperty().bind(ImageManager.getInstance().personImageProperty(person));
 
         setTitle(person.getName());
-        setDescription(DataRepository2.getInstance().getPersonReadMe(person));
+        setDescription(DataRepository.getInstance().getPersonReadMe(person));
 
         //add badges
         badgeBox.getChildren().clear();
@@ -86,6 +87,7 @@ public class PersonTileView extends SimpleTileView<Person> {
         socialLinksView.setLinkedInUrl("https://www.linkedin.com/in/" + person.getLinkedIn());
         socialLinksView.setWebsiteUrl(person.getWebsite());
         socialLinksView.setGithubUrl(person.getGitHub());
+        socialLinksView.setBlueskyUrl("https://bsky.app/profile/" + person.getBluesky());
         if (StringUtils.isNotBlank(person.getEmail().trim())) {
             socialLinksView.setMailUrl("mailto:" + person.getEmail());
         }

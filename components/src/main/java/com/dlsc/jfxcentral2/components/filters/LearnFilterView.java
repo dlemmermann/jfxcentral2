@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.filters;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Learn;
 import com.dlsc.jfxcentral.data.model.LearnJavaFX;
 import com.dlsc.jfxcentral.data.model.LearnMobile;
@@ -24,13 +24,13 @@ public class LearnFilterView extends SimpleModelObjectSearchFilterView<Learn> {
         setSortGroup(new SortGroup<>("ORDER", List.of(
                 new SortItem<>("Natural Order", Comparator.comparing((Learn modelObject) -> {
                     if (modelObject instanceof LearnJavaFX fxmodel) {
-                        List<LearnJavaFX> fxList = DataRepository2.getInstance().getLearnJavaFX();
+                        List<LearnJavaFX> fxList = DataRepository.getInstance().getLearnJavaFX();
                         return fxList.indexOf(fxmodel);
                     } else if (modelObject instanceof LearnMobile mobile) {
-                        List<LearnMobile> mobileList = DataRepository2.getInstance().getLearnMobile();
+                        List<LearnMobile> mobileList = DataRepository.getInstance().getLearnMobile();
                         return mobileList.indexOf(mobile);
                     } else if (modelObject instanceof LearnRaspberryPi pi) {
-                        List<LearnRaspberryPi> piList = DataRepository2.getInstance().getLearnRaspberryPi();
+                        List<LearnRaspberryPi> piList = DataRepository.getInstance().getLearnRaspberryPi();
                         return piList.indexOf(pi);
                     }
                     return 0;

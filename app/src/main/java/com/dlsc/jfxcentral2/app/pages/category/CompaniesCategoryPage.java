@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Company;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.CompaniesFilterView;
@@ -58,6 +58,6 @@ public class CompaniesCategoryPage extends CategoryPageBase<Company> {
 
     @Override
     protected ObservableList<Company> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getCompanies());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getCompanies());
     }
 }

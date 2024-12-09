@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Documentation;
 import com.dlsc.jfxcentral.data.model.ModelObject;
 import com.dlsc.jfxcentral2.utils.LOGGER;
@@ -76,7 +76,7 @@ public class TrayIconManager {
         Menu utilities = new Menu("Utilities");
         Menu documentation = new Menu("Documentation");
 
-        DataRepository2 repository = DataRepository2.getInstance();
+        DataRepository repository = DataRepository.getInstance();
 
         repository.getTools().stream().sorted(Comparator.comparing(ModelObject::getName)).forEach(mo -> createMenuItem(tools, mo));
         repository.getPeople().stream().sorted(Comparator.comparing(ModelObject::getName)).forEach(mo -> createMenuItem(people, mo));

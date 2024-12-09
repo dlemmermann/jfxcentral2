@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.components.DetailsContentPane;
 import com.dlsc.jfxcentral2.components.LinksOfTheWeekView;
@@ -67,7 +67,7 @@ public class LinksOfTheWeekPage extends CategoryPageBase<LinksOfTheWeek> {
 
         // links of the week view
         LinksOfTheWeekView linksOfTheWeekView = new LinksOfTheWeekView();
-        linksOfTheWeekView.getLinksOfTheWeeks().setAll(DataRepository2.getInstance().getLinksOfTheWeek());
+        linksOfTheWeekView.getLinksOfTheWeeks().setAll(DataRepository.getInstance().getLinksOfTheWeek());
         linksOfTheWeekView.sizeProperty().bind(sizeProperty());
 
         // this is a category page, but we still need to use the details content pane for layout purposes
@@ -130,7 +130,7 @@ public class LinksOfTheWeekPage extends CategoryPageBase<LinksOfTheWeek> {
 
     @Override
     protected ObservableList<LinksOfTheWeek> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getLinksOfTheWeek());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getLinksOfTheWeek());
     }
 
     @Override
@@ -144,7 +144,7 @@ public class LinksOfTheWeekPage extends CategoryPageBase<LinksOfTheWeek> {
     }
 
     protected List<MenuView.Item> createMenuItems(LinksOfTheWeekView linksOfTheWeekView) {
-        List<LinksOfTheWeek> linksOfTheWeek = DataRepository2.getInstance().getLinksOfTheWeek();
+        List<LinksOfTheWeek> linksOfTheWeek = DataRepository.getInstance().getLinksOfTheWeek();
         List<LinksOfTheWeek> weeks = new ArrayList<>(linksOfTheWeek);
 
         return weeks

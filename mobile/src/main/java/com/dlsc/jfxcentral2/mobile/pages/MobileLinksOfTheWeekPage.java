@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.components.MobilePageBase;
 import com.dlsc.jfxcentral2.mobile.components.LotwPagination;
@@ -34,7 +34,7 @@ public class MobileLinksOfTheWeekPage extends MobilePageBase {
         header.setIcon(IkonUtil.getModelIkon(LinksOfTheWeek.class));
 
         // sort by date
-        ArrayList<LinksOfTheWeek> sortedLinks = new ArrayList<>(DataRepository2.getInstance().getLinksOfTheWeek());
+        ArrayList<LinksOfTheWeek> sortedLinks = new ArrayList<>(DataRepository.getInstance().getLinksOfTheWeek());
         sortedLinks.sort(Comparator.comparing(LinksOfTheWeek::getCreatedOn).reversed());
 
         LotwPagination pagination = new LotwPagination();

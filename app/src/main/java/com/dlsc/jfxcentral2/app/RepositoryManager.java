@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral2.utils.LOGGER;
 import com.dlsc.jfxcentral2.utils.OSUtil;
 import javafx.application.Platform;
@@ -62,7 +62,7 @@ public class RepositoryManager {
     }
 
     private static File getRepositoryDirectory() {
-        return DataRepository2.getRepositoryDirectory();
+        return DataRepository.getRepositoryDirectory();
     }
 
     public static boolean isFirstTimeSetup() {

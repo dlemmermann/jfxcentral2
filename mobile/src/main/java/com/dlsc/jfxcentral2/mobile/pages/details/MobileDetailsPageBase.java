@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.details;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.ModelObject;
 import com.dlsc.jfxcentral2.components.MobilePageBase;
 import com.dlsc.jfxcentral2.model.Size;
@@ -18,7 +18,7 @@ public abstract class MobileDetailsPageBase<T extends ModelObject> extends Mobil
         this.clazz = clazz;
 
         sizeProperty().bind(size);
-        setItem(DataRepository2.getInstance().getByID(clazz, itemId));
+        setItem(DataRepository.getInstance().getByID(clazz, itemId));
         getChildren().addAll(content());
         getStyleClass().add("mobile-details-page");
     }

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.LinksOfTheWeek;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 
@@ -21,7 +21,7 @@ public class LotwPagination extends MobilePagination<LinksOfTheWeek> {
             if (lotw == null) {
                 return "";
             }
-            return DataRepository2.getInstance().getLinksOfTheWeekReadMe(lotw);
+            return DataRepository.getInstance().getLinksOfTheWeekReadMe(lotw);
         }, itemProperty()));
 
         scrollPane.setContent(markdownView);

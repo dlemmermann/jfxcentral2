@@ -59,7 +59,8 @@ public enum JFXCentralIcon implements Ikon {
     YOUTUBE("jfx-icon-youtube", '\ue934'),
     TOP_CONTENT("jfx-icon-top-content", '\ue935'),
     HANDSHAKE("jfx-icon-handshake", '\ue936'),
-    TEAM("jfx-icon-team", '\ue937');
+    TEAM("jfx-icon-team", '\ue937'),
+    BLUESKY("jfx-icon-bluesky", '\ue938');
 
     private final String description;
     private final int icon;

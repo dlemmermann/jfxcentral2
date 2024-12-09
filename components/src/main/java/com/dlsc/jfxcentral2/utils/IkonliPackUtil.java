@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.utils;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Dependency;
 import com.dlsc.jfxcentral.data.model.IkonliPack;
 import com.dlsc.jfxcentral2.model.IkonData;
@@ -36,7 +36,7 @@ public class IkonliPackUtil {
                 ikonDataSet.add(IkonData.of(provider));
             }
         }
-        List<IkonliPack> ikonliPacks = DataRepository2.getInstance().getIkonliPacks();
+        List<IkonliPack> ikonliPacks = DataRepository.getInstance().getIkonliPacks();
 
         ikonDataSet.forEach(data -> {
             for (IkonliPack pack : ikonliPacks) {

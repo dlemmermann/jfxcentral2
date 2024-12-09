@@ -1,7 +1,7 @@
 package com.dlsc.jfxcentral2.mobile.home;
 
 import com.dlsc.gemsfx.Spacer;
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.ImageManager;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
@@ -523,7 +523,7 @@ public class CategoryPreviewView extends VBox {
         for (Person person : people) {
             CategoryPreviewView.CategoryItem item = new CategoryPreviewView.CategoryItem(
                     person.getName(),
-                    DataRepository2.getInstance().getPersonReadMe(person),
+                    DataRepository.getInstance().getPersonReadMe(person),
                     ImageManager.getInstance().personImageProperty(person),
                     ModelObjectTool.getModelLink(person)
             );

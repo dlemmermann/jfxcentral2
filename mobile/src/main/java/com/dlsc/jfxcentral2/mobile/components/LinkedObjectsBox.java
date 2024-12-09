@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Blog;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral.data.model.Company;
@@ -135,7 +135,7 @@ public class LinkedObjectsBox<T extends ModelObject> extends VBox {
     }
 
     private <M extends ModelObject> List<M> getLinkedObjects(T t, Class<M> type) {
-        return DataRepository2.getInstance().getLinkedObjects(t, type);
+        return DataRepository.getInstance().getLinkedObjects(t, type);
     }
 
     // size

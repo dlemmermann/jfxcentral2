@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.mobile.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Book;
 import com.dlsc.jfxcentral2.mobile.components.ModelListCell;
 import com.dlsc.jfxcentral2.model.Size;
@@ -48,6 +48,6 @@ public class MobileBooksCategoryPage extends MobileCategoryPageBase<Book> {
 
     @Override
     protected ObservableList<Book> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getBooks());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getBooks());
     }
 }

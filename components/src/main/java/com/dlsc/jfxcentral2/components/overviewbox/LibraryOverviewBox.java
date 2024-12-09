@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.overviewbox;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Library;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 import com.dlsc.jfxcentral2.components.Header;
@@ -28,8 +28,8 @@ public class LibraryOverviewBox extends PaneBase implements NameProvider {
         header.visibleProperty().bind(titleProperty().isNotEmpty().and(iconProperty().isNotNull()));
 
         CustomMarkdownView markdownView = new CustomMarkdownView();
-        markdownView.setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "libraries/" + library.getId());
-        markdownView.setMdString(DataRepository2.getInstance().getLibraryReadMe(library));
+        markdownView.setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "libraries/" + library.getId());
+        markdownView.setMdString(DataRepository.getInstance().getLibraryReadMe(library));
 
         LibraryPreviewBox libraryPreviewBox = new LibraryPreviewBox(library);
         libraryPreviewBox.sizeProperty().bind(sizeProperty());

@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.components.overviewbox;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Video;
 import com.dlsc.jfxcentral2.components.CustomMarkdownView;
 import com.dlsc.jfxcentral2.utils.VideoViewFactory;
@@ -15,7 +15,7 @@ public class VideoOverviewBox extends SimpleOverviewBox<Video> {
 
         // there is no markdown for videos, but we might add it in the future,
         // so let's specify the base url ... just to be sure
-        setBaseURL(DataRepository2.getInstance().getRepositoryDirectoryURL() + "videos/" + video.getId());
+        setBaseURL(DataRepository.getInstance().getRepositoryDirectoryURL() + "videos/" + video.getId());
     }
 
     @Override

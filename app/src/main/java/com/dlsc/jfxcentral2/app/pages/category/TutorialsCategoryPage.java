@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Tutorial;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.SearchFilterView;
@@ -58,6 +58,6 @@ public class TutorialsCategoryPage extends CategoryPageBase<Tutorial> {
 
     @Override
     protected ObservableList<Tutorial> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getTutorials());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getTutorials());
     }
 }

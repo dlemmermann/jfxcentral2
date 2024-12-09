@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.demo.components;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Library;
 import com.dlsc.jfxcentral2.components.SizeComboBox;
 import com.dlsc.jfxcentral2.components.tiles.LibraryTileView;
@@ -15,7 +15,7 @@ public class HelloLibraryTileView extends JFXCentralSampleBase {
 
     @Override
     protected Region createControl() {
-        Library library = DataRepository2.getInstance().getLibraries().stream().filter(l -> l.getId().equalsIgnoreCase("FXGL")).findFirst().get();
+        Library library = DataRepository.getInstance().getLibraries().stream().filter(l -> l.getId().equalsIgnoreCase("FXGL")).findFirst().get();
 
         libraryTileView = new LibraryTileView(library);
         return new ScrollPane(libraryTileView);

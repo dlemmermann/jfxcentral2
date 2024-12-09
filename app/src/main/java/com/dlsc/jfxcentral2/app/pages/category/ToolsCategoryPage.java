@@ -1,6 +1,6 @@
 package com.dlsc.jfxcentral2.app.pages.category;
 
-import com.dlsc.jfxcentral.data.DataRepository2;
+import com.dlsc.jfxcentral.data.DataRepository;
 import com.dlsc.jfxcentral.data.model.Tool;
 import com.dlsc.jfxcentral2.app.pages.CategoryPageBase;
 import com.dlsc.jfxcentral2.components.filters.SearchFilterView;
@@ -63,6 +63,6 @@ public class ToolsCategoryPage extends CategoryPageBase<Tool> {
 
     @Override
     protected ObservableList<Tool> getCategoryItems() {
-        return FXCollections.observableArrayList(DataRepository2.getInstance().getTools());
+        return FXCollections.observableArrayList(DataRepository.getInstance().getTools());
     }
 }
