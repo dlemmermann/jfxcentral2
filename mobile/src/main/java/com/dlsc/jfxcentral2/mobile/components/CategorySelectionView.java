@@ -19,10 +19,10 @@ import com.dlsc.jfxcentral2.components.CustomToggleButton;
 import com.dlsc.jfxcentral2.mobile.pages.MobileHomePage;
 import com.dlsc.jfxcentral2.utils.IkonUtil;
 import com.dlsc.jfxcentral2.utils.MobileLinkUtil;
+import com.dlsc.jfxcentral2.utils.MobileRouter;
 import com.dlsc.jfxcentral2.utils.PagePath;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
-import javafx.geometry.Pos;
 import javafx.geometry.VPos;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -35,6 +35,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.Priority;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
+import org.apache.commons.lang3.StringUtils;
 import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
 import org.kordamp.ikonli.materialdesign.MaterialDesign;
@@ -149,6 +150,21 @@ public class CategorySelectionView extends GridPane {
 
         toggleGroup.selectToggle(homeButton);
         toggleGroup.selectedToggleProperty().addListener(it -> closeDrawer.run());
+
+        // listen to changes in the current path and update the selected button accordingly
+        MobileRouter mobileRouter = MobileRouter.getInstance();
+        mobileRouter.currentPathProperty().addListener(it ->
+                toggleGroup.getToggles().forEach(btn -> {
+                    CustomToggleButton button = (CustomToggleButton) btn;
+                    if (StringUtils.equals(mobileRouter.getCurrentPath(), (String) button.getUserData())) {
+                        if (!button.isSelected()) {
+                            button.setSelected(true);
+                        }
+                    } else {
+                        button.setSelected(false);
+                    }
+                })
+        );
     }
 
     private Node createNode(String text1, String text2, String imageFileName) {
