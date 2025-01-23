@@ -1534,6 +1534,8 @@
     -fx-shape: "M8.79164 25V22.2222H2.19442C1.63886 22.2222 1.15275 22.0139 0.736084 21.5972C0.319417 21.1806 0.111084 20.6944 0.111084 20.1389V2.08333C0.111084 1.52778 0.319417 1.04167 0.736084 0.625C1.15275 0.208333 1.63886 0 2.19442 0H14.6944V2.08333H2.19442V20.1389H25.8055V15.2778H27.8889V20.1389C27.8889 20.6944 27.6805 21.1806 27.2639 21.5972C26.8472 22.0139 26.3611 22.2222 25.8055 22.2222H19.2083V25H8.79164ZM20.9444 14.7917L14.4861 8.33333L15.9444 6.875L19.9027 10.8333V0H21.9861V10.8333L25.9444 6.875L27.4027 8.33333L20.9444 14.7917Z";
     -fx-pref-width: 28px;
     -fx-pref-height: 25px;
+    -fx-max-width: 28px;
+    -fx-max-height: 25px;
     -fx-background-color: -grey-100;
 }
 
@@ -1569,6 +1571,16 @@
 .welcome-view .flow-pane .install-button {
     -bg: -light-blue;
     -fx-background-color: -bg;
+}
+
+.welcome-view .flow-pane .install-button.menu-button {
+    -fx-content-display: graphic-only;
+}
+
+.welcome-view .flow-pane .install-button.menu-button .install-graphic {
+    -fx-font-weight: bold;
+    -fx-alignment: center;
+    -fx-spacing: 15px;
 }
 
 .welcome-view .flow-pane .openjfx-button {
@@ -1658,6 +1670,13 @@
     -fx-pref-height: 60px;
     -fx-max-width: 303px;
     -fx-max-height: 60px;
+}
+
+.welcome-view:md .flow-pane .fill-button {
+    -fx-pref-width: 300px;
+    -fx-pref-height: 50px;
+    -fx-max-width: 300px;
+    -fx-max-height: 50px;
 }
 
 .welcome-view:md {

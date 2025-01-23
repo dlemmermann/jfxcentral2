@@ -5,15 +5,22 @@ import com.dlsc.jfxcentral2.utils.IkonUtil;
 import com.dlsc.jfxcentral2.utils.OSUtil;
 import com.dlsc.jfxcentral2.utils.PagePath;
 import com.jpro.webapi.WebAPI;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.CustomMenuItem;
 import javafx.scene.control.Label;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import one.jpro.platform.routing.LinkUtil;
+import org.kordamp.ikonli.Ikon;
 import org.kordamp.ikonli.javafx.FontIcon;
+import org.kordamp.ikonli.materialdesign.MaterialDesign;
 
 import java.text.MessageFormat;
 
@@ -22,7 +29,7 @@ public class WelcomeView extends PaneBase {
     private final VBox labelBox;
     private final FlowPane flowPane;
     private final Button openJFXProjectButton;
-    private final Button clientWebSwitchButton;
+    private final Node clientWebSwitchButton;
     private final Button jfxcentralDataButton;
     private final Button jfxCentralButton;
     private double xOffset;
@@ -82,13 +89,25 @@ public class WelcomeView extends PaneBase {
         ExternalLinkUtil.setExternalLink(jfxcentralDataButton, "https://github.com/dlsc-software-consulting-gmbh/jfxcentral-data");
 
         Region graphicRegion = new Region();
-        clientWebSwitchButton = new Button("Install locally", graphicRegion);
-        if (WebAPI.isBrowser()) {
-            clientWebSwitchButton.setText("Install locally");
+        if (true) {
+            clientWebSwitchButton = new MenuButton();
+
             graphicRegion.getStyleClass().add("download-region");
-            ExternalLinkUtil.setExternalLink(clientWebSwitchButton, "https://downloads.hydraulic.dev/jfxcentral2/download.html");
+            HBox graphic = new HBox(new Label("Install locally"), graphicRegion);
+            graphic.getStyleClass().add("install-graphic");
+            ((MenuButton) clientWebSwitchButton).setGraphic(graphic);
+
+            MenuItem downloadMenuItem = createMenuItem("Desktop", "https://downloads.hydraulic.dev/jfxcentral2/download.html", MaterialDesign.MDI_DESKTOP_MAC);
+
+            MenuItem downloadMobileMenuItem = createMenuItem("Apple Store", "https://apps.apple.com/jp/app/jfxcentral/id1613971561", MaterialDesign.MDI_APPLE);
+
+            // TODO: Add Google Play link
+            MenuItem downloadGoogleMenuItem = createMenuItem("Google Play", "https://play.google.com/store/apps", MaterialDesign.MDI_GOOGLE_PLAY);
+
+            ((MenuButton) clientWebSwitchButton).getItems().addAll(downloadMenuItem, downloadMobileMenuItem, downloadGoogleMenuItem);
+
         } else {
-            clientWebSwitchButton.setText("Online Version");
+            clientWebSwitchButton = new Button("Online Version", graphicRegion);
             graphicRegion.getStyleClass().add("openjfx-region");
             ExternalLinkUtil.setExternalLink(clientWebSwitchButton, "https://www.jfx-central.com/");
         }
@@ -130,5 +149,12 @@ public class WelcomeView extends PaneBase {
         content.getStyleClass().add("content");
         content.getChildren().setAll(labelBox, flowPane);
         getChildren().setAll(content);
+    }
+
+    private MenuItem createMenuItem(String text, String url, Ikon ikon) {
+        Label label = new Label(text, ikon != null ? new FontIcon(ikon) : null);
+        StackPane wrapper = new StackPane(label);
+        LinkUtil.setExternalLink(label, url);
+        return new CustomMenuItem(wrapper);
     }
 }
